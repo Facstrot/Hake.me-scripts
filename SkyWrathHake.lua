@@ -7,8 +7,8 @@ SkyWrathHake.combokey = Menu.AddKeyOption({"Hero Specific", "SkyWrathHake"}, "Co
 SkyWrathHake.harraskey = Menu.AddKeyOption({"Hero Specific", "SkyWrathHake"}, "Harras Key", Enum.ButtonCode.KEY_D)
 SkyWrathHake.enemyInRange = Menu.AddOption({"Hero Specific", "SkyWrathHake"}, "Closest to mouse range", "Range that makes assembly checking for enemy in selected range.", 100, 600, 100)
 
-SkyWrathHake.menuItems = {atos = "Rod of Atos", hex = "Scythe of Vyse", eblade = "Ethereal Blade", veil = "Veil of Discrod", dagon = "Dagon", orchid = "Orchid", blood = "Bloodthorn", shiva = "Shiva's guard"}
-SkyWrathHake.ItemsOptionID = {atos, hex, eblade, veil, dagon, orchid, blood, shiva}
+SkyWrathHake.menuItems = {atos = "Rod of Atos", nullifier = "Nullifier", hex = "Scythe of Vyse", eblade = "Ethereal Blade", veil = "Veil of Discrod", dagon = "Dagon", orchid = "Orchid", blood = "Bloodthorn", shiva = "Shiva's guard"}
+SkyWrathHake.ItemsOptionID = {atos, nullifier, hex, eblade, veil, dagon, orchid, blood, shiva}
 for k, v in pairs(SkyWrathHake.menuItems) do
 	SkyWrathHake.ItemsOptionID[k] = Menu.AddOption({"Hero Specific", "SkyWrathHake", "Magic Damage Items"}, SkyWrathHake.menuItems[k], "")
 end
@@ -259,6 +259,7 @@ function SkyWrathHake.PrayToDog()
 	if SkyWrathHake.UseBlink() then return end
 	if SkyWrathHake.AeonDispelling() then return end
 	if SkyWrathHake.CastAbility(slow, SkyWrathHake.AbilitiesOptionID["slow"]) then return end
+	if SkyWrathHake.UseItem(nullifier, SkyWrathHake.ItemsOptionID["nullifier"]) then return end
 	if SkyWrathHake.UseItem(atos, SkyWrathHake.ItemsOptionID["atos"]) then return end
 	if SkyWrathHake.CastAbility(silence, SkyWrathHake.AbilitiesOptionID["silence"]) then return end
 	if SkyWrathHake.UseItem(veil, SkyWrathHake.ItemsOptionID["veil"]) then return end
